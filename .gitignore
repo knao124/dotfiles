@@ -1,0 +1,6 @@
+.scripts/variables.sh
+.zsh/secrets.zsh
+.zsh_history
+.serena
+codex/.projects.toml
+codex/.system-prompt.md
