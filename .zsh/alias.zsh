@@ -23,3 +23,6 @@ eval "$(pyenv init -)"
 
 # rails
 alias srake='spring rake'
+
+# ccusage
+alias ccusage='npx ccusage@latest'
