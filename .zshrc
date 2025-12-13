@@ -120,3 +120,8 @@ ssh-add ~/.ssh/keys/id_rsa_github
 export PATH="/opt/homebrew/opt/sqlite/bin:$PATH"
 
 source $HOME/.zsh/alias.zsh
+
+# goenv
+export GOENV_ROOT="$HOME/.goenv"
+export PATH="$GOENV_ROOT/bin:$PATH"
+eval "$(goenv init -)"
