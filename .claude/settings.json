@@ -1,6 +1,7 @@
 {
   "cleanupPeriodDays": 20,
   "env": {
+    "ENABLE_LSP_TOOL": "1",
     "DISABLE_TELEMETRY": "1",
     "DISABLE_ERROR_REPORTING": "1",
     "DISABLE_BUG_COMMAND": "1",
@@ -203,9 +204,9 @@
     ]
   },
   "enabledPlugins": {
-    "gopls-lsp@claude-plugins-official": true,
     "pyright-lsp@claude-plugins-official": true,
     "Notion@claude-plugins-official": true,
-    "typescript-lsp@claude-plugins-official": true
+    "typescript-lsp@claude-plugins-official": true,
+    "gopls-lsp@claude-plugins-official": true
   }
 }
