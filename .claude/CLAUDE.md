@@ -6,7 +6,10 @@ This document defines the project's rules, objectives, and progress management m
 
 - To maximize efficiency, **if you need to execute multiple independent processes, invoke those tools concurrently, not sequentially**.
 - **You must think exclusively in English**. However, you are required to **respond in Japanese**.
-- To understand how to use a library, **always use the Contex7 MCP** to retrieve the latest information.
+- **パッケージ仕様の調査優先順位**: LSP（コード） → Context7 MCP → Web検索の順で調べる
+  1. まずLSP（goToDefinition, hover）で型定義・実装を確認（コードが最も正確）
+  2. 不足する場合はContext7 MCPでライブラリの公式ドキュメントを取得
+  3. それでも不明な場合のみWeb検索を使用
 - For temporary notes for design, create a markdown in `.tmp` and save it.
 - **After using Write or Edit tools, ALWAYS verify the actual file contents using the Read tool**, regardless of what the system-reminder says. The system-reminder may incorrectly show "(no content)" even when the file has been successfully written.
 - Please respond critically and without pandering to my opinions, but please don't be forceful in your criticism.
