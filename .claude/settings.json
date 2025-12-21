@@ -65,7 +65,12 @@
       "mcp__playwright__browser_tab_new",
       "mcp__playwright__browser_tab_select",
       "mcp__playwright__browser_tab_close",
-      "mcp__playwright__browser_generate_playwright_test"
+      "mcp__playwright__browser_generate_playwright_test",
+      "Write(**/*.md)",
+      "Write(**/*.go)",
+      "Write(**/*.ts)",
+      "WebSearch",
+      "WebFetch"
     ],
     "deny": [
       "Bash(sudo:*)",
@@ -193,5 +198,11 @@
         ]
       }
     ]
+  },
+  "enabledPlugins": {
+    "gopls-lsp@claude-plugins-official": true,
+    "pyright-lsp@claude-plugins-official": true,
+    "Notion@claude-plugins-official": true,
+    "typescript-lsp@claude-plugins-official": true
   }
 }
