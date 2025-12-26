@@ -4,3 +4,5 @@
 .serena
 codex/.projects.toml
 codex/.system-prompt.md
+
+.DS_Store
