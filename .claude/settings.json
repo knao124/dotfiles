@@ -49,6 +49,9 @@
 
       "Bash(docker:*)",
       "Bash(gcloud:*)",
+      "Bash(gsutil:*)",
+      "Bash(bq:*)",
+      "Bash(terraform:*)",
 
       "Bash(gemini google_web_search:*)",
       "Bash(osascript -e:*)",
