@@ -8,13 +8,15 @@ model_reasoning_effort = "high"
 # Hide internal AI reasoning process to reduce verbose output
 hide_agent_reasoning = true
 
-# Enable network access for web browsing and API calls
-network_access = true
+model = "gpt-5.2-codex"
 
-# Tools configuration
-[tools]
 # Enable web search functionality
-web_search = true
+[features]
+web_search_request = true
+
+# Enable network access for web browsing and API calls
+[sandbox_workspace_write]
+network_access = true
 
 # Notification settings
 # Play sound when task completes (macOS specific)
@@ -22,6 +24,22 @@ notify = ["bash", "-lc", "afplay /System/Library/Sounds/Ping.aiff"]
 
 # Trusted projects configuration
 projects = { "/Users/takumiakasaka/Git-Project/github.com/supsysjp/boba-server" = { trust_level = "trusted" } , "/Users/takumiakasaka/Git-Project/github.com/supsysjp/boba-schema" = { trust_level = "trusted" } , "/Users/takumiakasaka/Git-Project/github.com/eyday/eyday" = { trust_level = "trusted" } , "/Users/takumiakasaka/Git-Project/github.com/wedinc/one-admin" = { trust_level = "trusted" } , "/Users/takumiakasaka/Git-Project/github.com/supsysjp/zero-gcp-resources" = { trust_level = "trusted" } }
+
+[projects."/Users/knao124/dev"]
+trust_level = "trusted"
+
+[projects."/Users/knao124/dev/ridgebull/ai-ocr-agent"]
+trust_level = "trusted"
+
+[projects."/Users/knao124/dev/dhk/canvas-light-streaming-engine"]
+trust_level = "trusted"
+
+[projects."/Users/knao124/dev/ridgebull/zenn"]
+trust_level = "trusted"
+
+[mcp_servers.playwright]
+command = "npx"
+args = ["@playwright/mcp@latest"]
 
 # MCP (Multi-Computational Platform) Servers
 # Add external service integrations here
