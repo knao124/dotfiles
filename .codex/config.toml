@@ -3,12 +3,13 @@
 # Model reasoning effort - controls AI's reasoning depth
 # Options: "low", "medium", "high"
 # Recommended: "high" for more comprehensive responses
-model_reasoning_effort = "high"
+model_reasoning_effort = "xhigh"
 
 # Hide internal AI reasoning process to reduce verbose output
 hide_agent_reasoning = true
 
-model = "gpt-5.2-codex"
+model = "gpt-5.4"
+personality = "pragmatic"
 
 # Enable web search functionality
 [features]

@@ -12,56 +12,16 @@
   },
   "permissions": {
     "allow": [
+      "Bash(*)",
       "Read(**)",
-      "Write(src/**)",
-      "Write(docs/**)",
-      "Write(.tmp/**)",
-      "Write(**/*.md)",
-      "Write(**/*.go)",
-      "Write(**/*.ts)",
-
-      "Bash(git init:*)",
-      "Bash(git add:*)",
-      "Bash(git commit:*)",
-      "Bash(git push:*)",
-      "Bash(git status:*)",
-      "Bash(git diff:*)",
-      "Bash(git log:*)",
-
-      "Bash(npm install:*)",
-      "Bash(pnpm install:*)",
-      "Bash(pnpm run test:*)",
-      "Bash(pnpm run build:*)",
-
-      "Bash(ls:*)",
-      "Bash(cat:*)",
-      "Bash(head:*)",
-      "Bash(tail:*)",
-      "Bash(pwd:*)",
-      "Bash(find:*)",
-      "Bash(tree:*)",
-      "Bash(mkdir:*)",
-      "Bash(mv:*)",
-      "Bash(grep:*)",
-
-      "Bash(go doc:*)",
-      "Bash(go env:*)",
-
-      "Bash(docker:*)",
-      "Bash(gcloud:*)",
-      "Bash(gsutil:*)",
-      "Bash(bq:*)",
-      "Bash(terraform:*)",
-
-      "Bash(gemini google_web_search:*)",
-      "Bash(osascript -e:*)",
-
-      "mcp__context7__resolve-library-id",
-      "mcp__context7__get-library-docs",
-      "mcp__plugin_playwright_playwright__*",
-
+      "Write(**)",
+      "Edit(**)",
+      "MultiEdit(**)",
+      "NotebookEdit(**)",
+      "mcp__*",
       "WebSearch",
-      "WebFetch"
+      "WebFetch",
+      "LSP"
     ],
     "deny": [
       "Bash(sudo:*)",
@@ -78,7 +38,6 @@
       "Bash(psql:*)",
       "Bash(mysql:*)",
       "Bash(mongod:*)",
-
       "Read(.env.*)",
       "Read(id_rsa)",
       "Read(id_ed25519)",
@@ -86,7 +45,6 @@
       "Read(**/*key*)",
       "Write(.env*)",
       "Write(**/secrets/**)",
-
       "mcp__serena__create_text_file",
       "mcp__serena__delete_lines",
       "mcp__serena__execute_shell_command",
@@ -94,7 +52,6 @@
       "mcp__serena__replace_regex"
     ]
   },
-  "model": "opus",
   "enableAllProjectMcpServers": true,
   "enabledMcpjsonServers": [
     "github",
