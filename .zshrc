@@ -126,3 +126,8 @@ eval "$(goenv init -)"
 
 # read
 source $HOME/.zsh/alias.zsh
+
+# gcloud
+[[ -f ~/.zsh/gcloud.zsh ]] && source ~/.zsh/gcloud.zsh
+
+
