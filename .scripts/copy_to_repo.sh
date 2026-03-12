@@ -22,7 +22,12 @@ fi
 cp -rp ~/.scripts/ $DF_REPO_PATH/.scripts
 
 # zsh
-cp ~/.zsh/alias.zsh $DF_REPO_PATH/.zsh/
+mkdir -p $DF_REPO_PATH/.zsh
+if command -v rsync >/dev/null 2>&1; then
+  rsync -a ~/.zsh/ $DF_REPO_PATH/.zsh/ >/dev/null 2>&1
+else
+  cp -R ~/.zsh/. $DF_REPO_PATH/.zsh
+fi
 cp ~/.zshrc $DF_REPO_PATH/
 
 # tmux
