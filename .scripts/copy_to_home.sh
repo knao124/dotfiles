@@ -58,8 +58,12 @@ if [[ -d "$DOTFILES_REPO/.codex" ]]; then
   mkdir -p "$HOME/.codex"
   cp -f "$DOTFILES_REPO/.codex/config.toml" "$HOME/.codex/config.toml" >/dev/null 2>&1
   if [[ -d "$DOTFILES_REPO/.codex/prompts" ]]; then
-    mkdir -p $HOME/.codex/prompts
-    cp -rp $DOTFILES_REPO/.codex/prompts/* $HOME/.codex/prompts/ >/dev/null 2>&1
+    mkdir -p "$HOME/.codex/prompts"
+    cp -rp "$DOTFILES_REPO/.codex/prompts/"* "$HOME/.codex/prompts/" >/dev/null 2>&1 || true
+  fi
+  if [[ -d "$DOTFILES_REPO/.codex/skills" ]]; then
+    mkdir -p "$HOME/.codex/skills"
+    cp -rp "$DOTFILES_REPO/.codex/skills/"* "$HOME/.codex/skills/" >/dev/null 2>&1 || true
   fi
 fi
 

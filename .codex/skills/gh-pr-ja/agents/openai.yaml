@@ -1,0 +1,4 @@
+interface:
+  display_name: "日本語PR作成"
+  short_description: "GitHub PR本文を日本語の定型構成で整えるスキル"
+  default_prompt: "Use $gh-pr-ja to draft or revise a GitHub PR in Japanese with the required section order."

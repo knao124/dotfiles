@@ -15,7 +15,12 @@ cp ~/.claude/agents/* $DF_REPO_PATH/.claude/agents/ 2>/dev/null || true
 mkdir -p $DF_REPO_PATH/.codex
 cp ~/.codex/config.toml $DF_REPO_PATH/.codex/ 2>/dev/null || true
 if [[ -d ~/.codex/prompts ]]; then
+  mkdir -p $DF_REPO_PATH/.codex/prompts
   cp -rp ~/.codex/prompts/* $DF_REPO_PATH/.codex/prompts/ 2>/dev/null || true
+fi
+if [[ -d ~/.codex/skills ]]; then
+  mkdir -p $DF_REPO_PATH/.codex/skills
+  cp -rp ~/.codex/skills/* $DF_REPO_PATH/.codex/skills/ 2>/dev/null || true
 fi
 
 # scripts
