@@ -41,14 +41,16 @@ If a section has no content, omit it. Keep the first four sections whenever they
 
 ## Workflow
 
-1. Gather the evidence needed to justify the PR:
+1. Sync the branch with the latest base branch before opening or updating the PR:
+   identify the base branch, run `git fetch origin`, and rebase or merge the working branch onto the latest `origin/<base>` using the repository's standard flow. If conflicts appear, resolve them before drafting the PR body or running `gh pr create`. If the base branch advances again while the PR is open, repeat this step before finalizing the PR.
+2. Gather the evidence needed to justify the PR:
    `git diff`, tests, CI results, review comments, incident logs, monitoring links, and latest occurrence timestamps.
-2. Decide the title:
+3. Decide the title:
    keep it short, in Japanese, and consistent with the repository's commit or PR prefix conventions such as `fix:` or `feat:` when those conventions exist.
-3. Draft the body using the default section order.
-4. Remove fluff:
+4. Draft the body using the default section order.
+5. Remove fluff:
    do not narrate the work process; keep only reviewer-useful facts.
-5. If the user asks to revise an existing PR:
+6. If the user asks to revise an existing PR:
    preserve the facts, but rewrite the structure and tone to match this skill.
 
 ## Example Skeleton
