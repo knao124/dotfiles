@@ -1,0 +1,7 @@
+interface:
+  display_name: "Docs保存"
+  short_description: "gwsで会話や要点をGoogle Docsへ保存するスキル"
+  default_prompt: "Use $gws-save-google-docs to save this conversation to Google Docs via `gws`."
+
+policy:
+  allow_implicit_invocation: true
