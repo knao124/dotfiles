@@ -1,7 +1,7 @@
 interface:
   display_name: "Gmail検索"
-  short_description: "Gmail検索をgog CLIで安全に実行するスキル"
-  default_prompt: "Use $gmail-search-gog to search Gmail with `gog` and summarize the matching results in Japanese."
+  short_description: "Gmail検索と重要メール確認をgog CLIで行うスキル"
+  default_prompt: "Use $gmail-search-gog to search Gmail with `gog`, check recent important mail, and summarize or quote the original message text in Japanese."
 
 policy:
   allow_implicit_invocation: true
