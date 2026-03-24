@@ -1,0 +1,4 @@
+interface:
+  display_name: "作業前Git準備"
+  short_description: "変更前に base 同期と worktree/branch 作成を行うスキル"
+  default_prompt: "Use $git-worktree-start before making repository changes to sync the base branch with origin, create a dedicated worktree, and start a codex-prefixed branch for the task."
