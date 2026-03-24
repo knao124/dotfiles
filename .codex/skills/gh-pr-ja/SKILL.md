@@ -7,7 +7,7 @@ description: Draft or revise GitHub pull request titles and bodies in Japanese. 
 
 ## Overview
 
-Use this skill when creating or editing GitHub PR titles and bodies in Japanese for engineering work. The default body structure is fixed so reviewers can scan the incident, the actual problem, the chosen approach, and the concrete changes without guessing.
+Use this skill when creating or editing GitHub PR titles and bodies in Japanese for engineering work. The default body structure is fixed so reviewers can scan the incident, the actual problem, the chosen approach, the PR goal, the concrete changes, and likely follow-up actions without guessing.
 
 ## When To Use
 
@@ -23,25 +23,30 @@ Use these sections in this order unless the user explicitly asks for a different
 1. `背景`
 2. `問題`
 3. `対策の方針`
-4. `実際にやったこと`
-5. `実行したコマンド`
-6. `結果`
+4. `本PRのゴール`
+5. `実際にやったこと`
+6. `実行したコマンド`
+7. `結果`
+8. `Next Actionの候補`
 
-If a section has no content, omit it. Keep the first four sections whenever they are relevant.
+If a section has no content, omit it. Keep `背景`, `問題`, `対策の方針`, `本PRのゴール`, and `実際にやったこと` whenever they are relevant.
 
 ## Writing Rules
 
 - Write in Japanese plain form. Do not use polite endings such as `〜ました`, `〜です`, or `〜ます`.
 - Keep bullets flat and short. One bullet should contain one point.
+- In `背景`, `問題`, `対策の方針`, `実際にやったこと`, and `Next Actionの候補`, write each bullet as `- タイトル: 説明`.
 - When adding comments to PR diffs, write one short Japanese comment per logical hunk so a reviewer can understand why the change exists without re-reading the whole PR body.
 - Diff comments should explain intent, guardrails, or why the implementation is safe. Do not restate the code literally.
 - Add diff comments only to non-obvious or reviewer-relevant changes. Skip self-evident renames, formatting-only hunks, and trivial mechanical edits.
 - In `背景`, explain the trigger for the PR. If the change came from monitoring or incident investigation, include the latest confirmed timestamp with timezone and a direct link such as Cloud Logging or the alert URL when available.
 - In `問題`, describe the broken behavior, missing guardrail, or operational risk. Focus on what was wrong before the change.
 - In `対策の方針`, explain the design choice and the guardrails being introduced. Separate benign cases from real errors when that distinction matters.
+- In `本PRのゴール`, summarize the intended reviewer-facing outcome before listing implementation details. Mention scope boundaries or non-goals when that helps avoid review confusion.
 - In `実際にやったこと`, list concrete code, query, config, or test changes. Do not repeat rationale here.
 - In `実行したコマンド`, list the exact verification commands and whether each succeeded.
 - In `結果`, state the current state such as `成功`, remaining risk, or follow-up.
+- In `Next Actionの候補`, list realistic follow-up work, rollout checks, or investigations that would naturally follow this PR when they exist.
 
 ## Workflow
 
@@ -51,7 +56,7 @@ If a section has no content, omit it. Keep the first four sections whenever they
    `git diff`, tests, CI results, review comments, incident logs, monitoring links, and latest occurrence timestamps.
 3. Decide the title:
    keep it short, in Japanese, and consistent with the repository's commit or PR prefix conventions such as `fix:` or `feat:` when those conventions exist.
-4. Draft the body using the default section order.
+4. Draft the body using the default section order and the titled bullet format where required.
 5. Open or update the PR.
 6. After the PR exists, inspect the `Files changed` tab and add Japanese comments to the important diff hunks:
    cover changes whose intent is not immediately obvious from the code, especially guard conditions, error handling, operational workarounds, schema changes, and behavior changes.
@@ -72,24 +77,33 @@ If a section has no content, omit it. Keep the first four sections whenever they
 
 ```md
 ## 背景
-- Demo 環境のアラート調査で `...` が継続的に発生していた
+- 発端: Demo 環境のアラート調査で `...` が継続的に発生していた
 - 最新確認: 2026年3月12日 09:40:55 JST（`...Z` / `revision-name`）
-- Cloud Logging: [Log Explorer](https://console.cloud.google.com/logs/query;query=...)
+- 参照ログ: [Log Explorer](https://console.cloud.google.com/logs/query;query=...)
 
 ## 問題
-- ...
+- 影響: ...
 
 ## 対策の方針
-- ...
+- 判定基準: ...
+
+## 本PRのゴール
+- 監視で拾った既知ケースを正常系として扱い、不要な失敗通知を止める
+- 本PRでは周辺バッチの再設計までは行わない
 
 ## 実際にやったこと
-- ...
+- API応答整理: ...
+- ログ補強: ...
 
 ## 実行したコマンド
 - `...` : 成功
 
 ## 結果
 - 成功
+
+## Next Actionの候補
+- 本番確認: ...
+- 監視調整: ...
 ```
 
 ## Example Diff Comments
