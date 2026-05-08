@@ -130,4 +130,6 @@ source $HOME/.zsh/alias.zsh
 # gcloud
 [[ -f ~/.zsh/gcloud.zsh ]] && source ~/.zsh/gcloud.zsh
 
+# direnv
+[[ -f ~/.zsh/direnv.zsh ]] && source ~/.zsh/direnv.zsh
 
