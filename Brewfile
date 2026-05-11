@@ -1,4 +1,7 @@
+tap "hashicorp/tap"
 brew "coreutils"
 brew "direnv"
 brew "gh"
+brew "node"
+brew "hashicorp/tap/terraform"
 cask "gcloud-cli"
