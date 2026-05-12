@@ -8,7 +8,7 @@ model_reasoning_effort = "xhigh"
 # Hide internal AI reasoning process to reduce verbose output
 hide_agent_reasoning = true
 
-model = "gpt-5.4"
+model = "gpt-5.5"
 personality = "pragmatic"
 
 # Enable web search functionality
