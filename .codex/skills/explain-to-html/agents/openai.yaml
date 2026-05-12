@@ -1,0 +1,7 @@
+interface:
+  display_name: "解説HTML"
+  short_description: "解説依頼を /tmp の HTML に保存するスキル"
+  default_prompt: "Use $explain-to-html to inspect the requested topic, write a standalone HTML explanation under /tmp, and reply with the file path plus a short summary."
+
+policy:
+  allow_implicit_invocation: true
