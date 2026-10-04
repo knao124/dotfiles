@@ -23,6 +23,12 @@ if [[ -d ~/.codex/skills ]]; then
   cp -rp ~/.codex/skills/* $DF_REPO_PATH/.codex/skills/ 2>/dev/null || true
 fi
 
+# 個人用Agent Skills（ロックファイルなどの端末固有情報は含めない）
+if [[ -d "$HOME/.agents/skills" ]]; then
+  mkdir -p "$DF_REPO_PATH/.agents/skills"
+  cp -rp "$HOME/.agents/skills/." "$DF_REPO_PATH/.agents/skills/"
+fi
+
 # scripts
 cp -rp ~/.scripts/ $DF_REPO_PATH/.scripts
 
