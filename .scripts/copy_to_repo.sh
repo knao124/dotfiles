@@ -14,6 +14,9 @@ cp ~/.claude/agents/* $DF_REPO_PATH/.claude/agents/ 2>/dev/null || true
 # codex (only the public config, not private projects)
 mkdir -p $DF_REPO_PATH/.codex
 cp ~/.codex/config.toml $DF_REPO_PATH/.codex/ 2>/dev/null || true
+if [[ -f "$HOME/.codex/AGENTS.md" ]]; then
+  cp "$HOME/.codex/AGENTS.md" "$DF_REPO_PATH/AGENTS.md"
+fi
 if [[ -d ~/.codex/prompts ]]; then
   mkdir -p $DF_REPO_PATH/.codex/prompts
   cp -rp ~/.codex/prompts/* $DF_REPO_PATH/.codex/prompts/ 2>/dev/null || true
