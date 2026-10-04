@@ -67,6 +67,12 @@ if [[ -d "$DOTFILES_REPO/.codex" ]]; then
   fi
 fi
 
+# リポジトリの共通指示をCodexのグローバル指示として復元する
+if [[ -f "$DOTFILES_REPO/AGENTS.md" ]]; then
+  mkdir -p "$HOME/.codex"
+  cp -f "$DOTFILES_REPO/AGENTS.md" "$HOME/.codex/AGENTS.md"
+fi
+
 # 個人用Agent Skillsをコピー（ロックファイルなどの端末固有情報は含めない）
 if [[ -d "$DOTFILES_REPO/.agents/skills" ]]; then
   echo "処理中: .agents/skills"
