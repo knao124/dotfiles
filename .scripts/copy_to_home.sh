@@ -67,10 +67,20 @@ if [[ -d "$DOTFILES_REPO/.codex" ]]; then
   fi
 fi
 
+# 個人用Agent Skillsをコピー（ロックファイルなどの端末固有情報は含めない）
+if [[ -d "$DOTFILES_REPO/.agents/skills" ]]; then
+  echo "処理中: .agents/skills"
+  mkdir -p "$HOME/.agents/skills"
+  cp -rp "$DOTFILES_REPO/.agents/skills/." "$HOME/.agents/skills/"
+fi
+
 echo "以下の dotfiles を $HOME に配置しました。"
 for item in "${SYNC_ITEMS[@]}"; do
   echo "  $item"
 done
 if [[ -d "$DOTFILES_REPO/.codex" ]]; then
   echo "  .codex"
+fi
+if [[ -d "$DOTFILES_REPO/.agents/skills" ]]; then
+  echo "  .agents/skills"
 fi
