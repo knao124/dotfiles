@@ -1,0 +1,53 @@
+{
+  "skill_name": "teamspirit-monthly-attendance",
+  "evals": [
+    {
+      "id": "attendance-plan-before-submit",
+      "prompt": "TeamSpiritで2026年1月の月水金勤務を祝日除外して勤怠時刻修正申請したい。登録前に確認して。",
+      "expected_output": "ローカル設定をvalidateし、なければ必要項目を聞いて作成してから、対象月、勤務セグメント、祝日または除外日、既存申請日を確認する。勤務日・開始終了・休憩・備考・合計時間を提示し、ユーザーの明示承認なしに個別承認申請を押さない。",
+      "files": []
+    },
+    {
+      "id": "missing-local-config",
+      "prompt": "TeamSpiritのローカル設定ファイルがまだない状態で、次月の勤怠登録を始めて。",
+      "expected_output": "scripts/teamspirit-config.mjs path/validateで設定ファイルの有無を確認し、missingまたはinvalidならreferences/configuration.mdを読み、attendanceUrl、workplaceHint、defaultWeekRules、noteFormatなど不足項目だけをユーザーに聞く。回答後にwriteで0600のローカル設定を作成し、実値をchatやPRに貼らない。",
+      "files": []
+    },
+    {
+      "id": "chrome-fallback-discipline",
+      "prompt": "TeamSpiritのChromeタブがあるはずなので、工数割合scriptを動作確認して。Chromeで見えなければComputer Useで探して。",
+      "expected_output": "ローカル設定を検証し、利用可能なChromeの一覧から対象タブとアカウントを確認する。旧Chrome skillの欠落や別Playwrightの空タブだけで未接続と判断しない。勤怠は読み取り専用evaluateで変更せず通常UIへ切り替えられる。工数はmain world/Dojoとサンプル保存確認の制約を維持し、hidden fieldを変更しない。",
+      "files": []
+    },
+    {
+      "id": "work-ratio-guardrails",
+      "prompt": "TeamSpirit工数のジョブ割合をProject A:1、Project B:4で全勤務日に登録して。",
+      "expected_output": "ローカル設定のworkRatio.jobsを使い、なければジョブmatchTextまたはmatchRegexとratioを聞いて設定を更新する。まず1日のサンプルでdry-runまたは明示承認後のsubmitを行い、保存後に代表日を再オープンしてslider値2/8と時間配分を確認する。empWorkSeqは編集せず、percent modeとempWorkSliderだけを使う。",
+      "files": []
+    },
+    {
+      "id": "compact-output",
+      "prompt": "TeamSpiritのconsole script実行結果を確認して、トークンを使いすぎないように報告して。",
+      "expected_output": "window.TS_MONTHLY_SUMMARYまたはwindow.TS_WORK_RATIO_SUMMARYを先に読み、full payloadやアクセシビリティツリーを貼らずに日付、status、合計時間、errorだけを要約する。",
+      "files": []
+    },
+    {
+      "id": "minimum-rest-boundary",
+      "prompt": "実働8時間で休憩30分の日と、実働9時間で休憩1時間の日を登録して。",
+      "expected_output": "8時間ちょうども対象として休憩合計60分以上を必須にし、30分の日は実際の休憩時刻を確認するまで保留する。休憩の捏造や実働の自動控除をしない。9時間・休憩1時間の日は条件を満たす。",
+      "files": []
+    },
+    {
+      "id": "multiple-rest-intervals",
+      "prompt": "08:30-10:00、10:30-11:00、13:00-14:00、19:00-20:00の勤怠を登録して。",
+      "expected_output": "08:30-20:00、休憩10:00-10:30・11:00-13:00・14:00-19:00、実働4時間として提示する。休憩追加ボタンで3区間を作り、送信前に全入力値を照合する。",
+      "files": []
+    },
+    {
+      "id": "company-holiday-disabled",
+      "prompt": "所定休日に実際に働いた。勤怠時刻修正申請が無効だが、振替せず登録できるか調べて。できなければ保留で。",
+      "expected_output": "通常UIで休日出勤や日別入力などの選択肢を確認する。無効メニューを繰り返し押さず、hidden fieldやAPIで制限を回避しない。振替先を勝手に決めず、登録手段がなければその日だけ保留する。",
+      "files": []
+    }
+  ]
+}
