@@ -1,0 +1,7 @@
+interface:
+  display_name: "Codex Consult"
+  short_description: "別CodexやDeepSeek Flashと議論し、設計相談・レビューの結果を検証する"
+  default_prompt: "$codex-consultでDeepSeek Flashを使い、この作業を2往復レビューしてください。"
+
+policy:
+  allow_implicit_invocation: true
