@@ -52,6 +52,21 @@ AIが生成した日本語を推敲する [nanaism/yomiyasu](https://github.com/
 更新時は配布元の `skills/yomiyasu` とリポジトリ直下の `LICENSE` を取り込み、
 ここに記載したバージョン・リビジョンも更新する。
 
+### codex-consult
+
+別のCodexやDeepSeek Flashに、設計相談・議論・レビューを依頼する。
+「deepseekつかって」「ディープシークつかって」「dsつかって」でDeepSeekを選ぶ。
+DeepSeekの往復数が未指定なら2往復で進め、指示役Codexが結果を検証してまとめる。
+
+DeepSeekには、Codexが選別・検査した文章だけを同梱のAPI送信スクリプトから渡す。
+DeepSeek側には作業ツリーの探索やコマンド実行をさせない。
+APIキーは環境変数か端末内の保存ファイルから認証ヘッダーにだけ使用し、リポジトリには含めない。
+普段のCodexのモデルや接続設定は変更しない。
+
+**DeepSeekは再学習に利用され得る外部サービスとして扱う。情報漏えいの経路となり、セキュリティホールになり得る。認証情報・秘密情報はモデルへ絶対に送らない。**
+送信前・各往復・回答利用時の注意は、スキル同梱の
+[注意事項](.codex/skills/codex-consult/references/deepseek-security.md)を参照する。
+
 ## direnv
 
 `direnv` がインストールされている場合だけ、`.zshrc` から `direnv hook zsh` を読み込む。
