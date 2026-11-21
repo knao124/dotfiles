@@ -65,11 +65,10 @@ alias esip='aws ec2 describe-instances --query "Reservations[0].Instances[0].{Pu
 alias esstop='aws ec2 stop-instances --instance-ids $ES_GPU_INSTANCE_ID'
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/knao124/dev/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/knao124/dev/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/knao124/dev/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/knao124/dev/google-cloud-sdk/completion.zsh.inc'; fi
+# Google Cloud SDK（brew install --cask gcloud-cli）
+GCLOUD_SDK_DIR="${HOMEBREW_PREFIX:-/opt/homebrew}/share/google-cloud-sdk"
+[[ -f "$GCLOUD_SDK_DIR/path.zsh.inc" ]] && source "$GCLOUD_SDK_DIR/path.zsh.inc"
+[[ -f "$GCLOUD_SDK_DIR/completion.zsh.inc" ]] && source "$GCLOUD_SDK_DIR/completion.zsh.inc"
 
 # Poetryのpath
 export PATH="/Users/knao124/.local/bin:$PATH"
