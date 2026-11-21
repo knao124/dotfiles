@@ -2,13 +2,11 @@
   "cleanupPeriodDays": 20,
   "env": {
     "ENABLE_LSP_TOOL": "1",
-    "DISABLE_TELEMETRY": "1",
     "DISABLE_ERROR_REPORTING": "1",
     "DISABLE_BUG_COMMAND": "1",
     "API_TIMEOUT_MS": "600000",
     "DISABLE_AUTOUPDATER": "1",
-    "CLAUDE_CODE_ENABLE_TELEMETRY": "0",
-    "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": "1"
+    "CLAUDE_CODE_ENABLE_TELEMETRY": "0"
   },
   "permissions": {
     "allow": [
@@ -55,6 +53,7 @@
       "mcp__serena__replace_regex"
     ]
   },
+  "model": "claude-fable-5[1m]",
   "enableAllProjectMcpServers": true,
   "enabledMcpjsonServers": [
     "github",
@@ -156,5 +155,8 @@
     "Notion@claude-plugins-official": true,
     "typescript-lsp@claude-plugins-official": true,
     "gopls-lsp@claude-plugins-official": true
-  }
+  },
+  "theme": "dark-ansi",
+  "remoteControlAtStartup": true,
+  "agentPushNotifEnabled": true
 }
