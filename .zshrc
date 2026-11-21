@@ -58,8 +58,6 @@ export LDFLAGS="-L/usr/local/opt/tcl-tk/lib"
 export CPPFLAGS="-I/usr/local/opt/tcl-tk/include"
 export PKG_CONFIG_PATH="/usr/local/opt/tcl-tk/lib/pkgconfig"
 
-export PYTHONPATH="/Users/knao124/dev/trade/rudolph-cq/src:$PYTHONPATH"
-
 # zshrc
 export ES_GPU_INSTANCE_ID=i-0011f31c68b715898
 alias esstart='aws ec2 start-instances --instance-ids $ES_GPU_INSTANCE_ID'
@@ -91,9 +89,6 @@ export JAVA_HOME=/Library/Java/JavaVirtualMachines/temurin-17.jdk/Contents/Home
 # export GOPATH=$(go env GOPATH)
 # export PATH=$PATH:$GOPATH/bin
 
-# go spc(supreme systemのcli)
-# export PATH=$PATH:/Users/knao124/dev/supreme/spcutils-go
-
 # liquidabase
 # https://docs.liquibase.com/workflows/liquibase-community/homebrew-installation-for-macos.html
 export LIQUIBASE_HOME=$(brew --prefix)/opt/liquibase/libexec
@@ -105,9 +100,6 @@ export PATH="/opt/homebrew/opt/php@8.2/bin:$PATH"
 export PATH="/opt/homebrew/opt/php@8.2/sbin:$PATH"
 # homebrewになんかいわれた 2024/05/29
 export LIQUIBASE_HOME=/opt/homebrew/opt/liquibase/libexec 
-
-# Flutterの設定
-export PATH="/Users/knao124/dev/flutter/bin:$PATH"
 
 ssh-add ~/.ssh/keys/id_rsa_github
 

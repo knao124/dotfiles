@@ -3,7 +3,9 @@
 # コマンド失敗/未定義変数/パイプ中いずれか、で失敗したらfailする
 set -euo pipefail
 
-DF_REPO_PATH="$HOME/dev/dotfiles"
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+# リポジトリ内から実行した場合はそのリポジトリ、~/.scripts から実行した場合は ghq レイアウトの既定パスを使う
+DF_REPO_PATH="${DOTFILES_REPO:-$(git -C "$SCRIPT_DIR" rev-parse --show-toplevel 2>/dev/null || echo "$(git config --get ghq.root || echo "$HOME/dev")/github.com/knao124/dotfiles")}"
 
 # claude
 cp ~/.claude/settings.json $DF_REPO_PATH/.claude/

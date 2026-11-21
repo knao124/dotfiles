@@ -1,6 +1,12 @@
 ---
+description: Publish a local HTML artifact to the `knao124/public` GitHub Pages repository and make it reachable from the public site. Use when the user asks to `HTMLを公開して`, `このHTMLを公開して`, `これを公開して`, `publicに公開して`, `public に置いて`, `GitHub Pages に載せて`, or otherwise wants a local or recently generated browser-viewable HTML file pushed to `git@github.com:knao124/public.git`. This skill copies the target HTML into the local clone of `knao124/public` (resolved from `PUBLIC_REPO_DIR` or the ghq root), updates `index.html` and `README.md` with links, pushes `main`, and verifies the public URL.
+license: MIT
+metadata:
+    github-path: skills/publish-to-public
+    github-ref: refs/heads/main
+    github-repo: https://github.com/knao124/agent-skills
+    github-tree-sha: 7ff37e2602f3279d63836f3af4d2a674fee3c429
 name: publish-to-public
-description: Publish a local HTML artifact to the `knao124/public` GitHub Pages repository and make it reachable from the public site. Use when the user asks to `publicに公開して`, `public に置いて`, `GitHub Pages に載せて`, or otherwise wants a browser-viewable HTML file pushed to `git@github.com:knao124/public.git`. This skill copies the target HTML into `~/dev/knao124/public`, updates `index.html` and `README.md` with links, pushes `main`, and verifies the public URL.
 ---
 
 # Publish To Public
@@ -14,11 +20,16 @@ Use this skill to turn an existing local HTML file into a public page under `htt
 1. Resolve the source artifact.
 - Prefer an explicit file path from the user.
 - Otherwise prefer the most recent relevant HTML generated in the current task, such as `/tmp/codex-explain-*.html`.
+- If the user says `これを公開して`, treat the current or most recent browser-viewable HTML artifact as the intended source when there is exactly one plausible candidate.
 - If there are multiple plausible HTML files and publishing the wrong one would be risky, ask one concise clarifying question.
 
 2. Prepare the public repository.
-- Work in `~/dev/knao124/public`.
-- If the repository is absent, clone `git@github.com:knao124/public.git` into that path.
+- Resolve the local repository path in this order and use the first one that applies:
+  1. `$PUBLIC_REPO_DIR` when it is set.
+  2. `ghq list -p -e github.com/knao124/public` when `ghq` is installed and returns a path.
+  3. `"$(git config --get ghq.root || echo "$HOME/dev")/github.com/knao124/public"`, which follows the ghq layout `<root>/<host>/<owner>/<repo>`.
+- Work in the resolved path. Do not hard-code a user-specific absolute path.
+- If the repository is absent, clone `git@github.com:knao124/public.git` into that path (`ghq get knao124/public` when `ghq` is installed).
 - Preserve existing user changes and do not overwrite unrelated files.
 
 3. Choose the destination filename.
@@ -44,7 +55,7 @@ Use this skill to turn an existing local HTML file into a public page under `htt
 7. Verify the public site.
 - Check both `https://knao124.github.io/public/` and the page URL with `curl`.
 - If GitHub Pages still returns old content or a `404`, wait briefly and retry because propagation can lag behind `git push`.
-- Return the final public URL, the destination file path in `~/dev/knao124/public`, and any propagation note.
+- Return the final public URL, the absolute destination file path in the resolved repository, and any propagation note.
 
 ## File Conventions
 
@@ -54,6 +65,8 @@ Use this skill to turn an existing local HTML file into a public page under `htt
 
 ## Example Triggers
 
+- `HTMLを公開して`
+- `これを公開して`
 - `この HTML を publicに公開して`
 - `さっき作った解説 HTML を GitHub Pages に載せて`
 - `public repo に置いて index から辿れるようにして`

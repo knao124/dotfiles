@@ -8,7 +8,7 @@ argument-hint: [タイトルまたはトピック] (省略可 - 省略時は会�
 
 この会話で話した内容を Zenn の技術記事として作成してください。
 
-**保存先**: `/Users/knao124/dev/ridgebull/zenn/articles/`
+**保存先**: `/Users/knao124/dev/github.com/RidgeBull/zenn/articles/`
 
 ### 記事フォーマット
 
