@@ -37,13 +37,13 @@ upgrade も含めて反映したい場合
 `.codex/skills` と `.agents/skills` は、上記のスクリプトで保存・復元する。
 `.agents` は `skills` のみを同期し、端末固有のロックファイルは含めない。
 リポジトリ直下の `AGENTS.md` は、`~/.codex/AGENTS.md` として保存・復元する。
+Codex と Claude Code の共通指示は `AGENTS.md` に書く。`.claude/CLAUDE.md` は `@~/.codex/AGENTS.md` で共通指示を読み込み、Claude Code 固有の指示だけを持つ。
 
 ### yomiyasu
 
 AIが生成した日本語を推敲する [nanaism/yomiyasu](https://github.com/nanaism/yomiyasu) を
 `.agents/skills/yomiyasu` に収録する。復元後は `$yomiyasu` を指定して利用できる。
-共通指示では、日本語の回答・進捗報告・作成する文章に毎回適用する。
-通常の回答には推敲した本文だけを返す。設定変更後は、新しい会話から共通指示が読み込まれる。
+共通指示で毎回適用するのは `writing` skill で、`yomiyasu` は明示的に呼び出したときだけ使う。
 
 - バージョン: 1.0.5
 - 取り込み元: `1890e67c497bf3b13df853719d7ca9af4ea37710` の `skills/yomiyasu`
