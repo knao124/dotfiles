@@ -29,13 +29,13 @@ projects = { "/Users/takumiakasaka/Git-Project/github.com/supsysjp/boba-server" 
 [projects."/Users/knao124/dev"]
 trust_level = "trusted"
 
-[projects."/Users/knao124/dev/ridgebull/ai-ocr-agent"]
+[projects."/Users/knao124/dev/github.com/RidgeBull/ai-ocr-agent"]
 trust_level = "trusted"
 
-[projects."/Users/knao124/dev/dhk/canvas-light-streaming-engine"]
+[projects."/Users/knao124/dev/github.com/dhk-devs/canvas-ai"]
 trust_level = "trusted"
 
-[projects."/Users/knao124/dev/ridgebull/zenn"]
+[projects."/Users/knao124/dev/github.com/RidgeBull/zenn"]
 trust_level = "trusted"
 
 [mcp_servers.playwright]
